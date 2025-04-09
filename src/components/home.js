@@ -5,6 +5,9 @@ import "../App.css";
 
 const EventWebsite = () => {
   const [showLogin, setShowLogin] = useState(false);
+  const [selectedCity, setSelectedCity] = useState("");
+  const [selectedPrice, setSelectedPrice] = useState("");
+  const [selectedTime, setSelectedTime] = useState("");
 
   const categories = [
     { name: "Music", icon: "🎵", img: "music_event.webp" },
@@ -14,6 +17,10 @@ const EventWebsite = () => {
     { name: "Technology", icon: "💻", img: "technology.jpeg" },
     { name: "Travel", icon: "✈️", img: "travel&adventure.webp" },
   ];
+
+  const cities = ["Agadir", "Casablanca", "Rabat", "Marrakech"];
+  const prices = ["200dh", "300dh", "400dh"];
+  const times = ["Day", "Night"];
 
   return (
     <div className="event-website">
@@ -26,7 +33,7 @@ const EventWebsite = () => {
           Explore the vibrant events happening locally and globally
         </p>
 
-        {/* Barre de recherche */}
+        {/* Search bar */}
         <div className="search-container">
           <div className="search-bar">
             <div className="search-icon">🔍</div>
@@ -42,7 +49,7 @@ const EventWebsite = () => {
         </div>
       </div>
 
-      {/* Catégories */}
+      {/* Categories section */}
       <div className="categories-section">
         <h2 className="section-title">Event Categories</h2>
         <div className="categories-grid">
@@ -60,6 +67,7 @@ const EventWebsite = () => {
       {/* Page de connexion */}
       {showLogin && <LoginPage onClose={() => setShowLogin(false)} />}
 
+      {/* CSS */}
       <style>{`
         .event-website {
           width: 100%;
@@ -203,6 +211,39 @@ const EventWebsite = () => {
           font-size: 0.9rem;
           font-weight: bold;
           color: #555;
+        }
+
+        /* Sidebar styles */
+        .filters-sidebar {
+          position: absolute;
+          top: 80px;
+          left: 8px;
+          width: 120px;
+          padding: 20px;
+          background-color: #f9f9f9;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .filter-group {
+          margin-bottom: 20px;
+        }
+
+        .filter-group h4 {
+          font-size: 1.2rem;
+          font-weight: bold;
+          margin-bottom: 10px;
+        }
+
+        .filter-item {
+          margin-bottom: 8px;
+        }
+
+        .filter-item input {
+          margin-right: 10px;
+        }
+
+        .filter-item label {
+          font-size: 1rem;
         }
       `}</style>
     </div>

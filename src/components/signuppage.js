@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import OrganizerSignUp from "./signup_orga";
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import Validation from './signupValidation'
 
 const SignUpPageContainer = styled.div`
   height: 100vh;
@@ -196,11 +199,36 @@ const SignUpPage = () => {
   const openOrganizerForm = () => setShowOrganizerForm(true);
   const closeOrganizerForm = () => setShowOrganizerForm(false);
 
-  const handleSubmit = (e) => {
-    e.preventDefault(); // Prevent form from submitting and redirecting
-    console.log("Form submitted successfully!");
-    // Here you can handle form submission (e.g., send data to backend)
-  };
+  const [values, setValues] = useState({
+    FirstName:'',
+    LastName:'',
+    DateOfBirth:'',
+    Address:'',
+    City:'',
+    IDCard:'',
+    Email:'',
+    Password:'',
+    CPassword:'',
+  })
+
+const navigate = useNavigate();
+const [errors, setErrors] = useState({})
+const handleInput =(event) => {
+    setValues(prev => ({...prev, [event.target.name]: [event.target.value ]}))
+}
+const handleSubmit =(event) => {
+    event.preventDefault();
+    setErrors(Validation(values));
+    if(errors.name === "" && errors.email === "" && errors.password === ""){
+        axios.post('http://localhost:8081/signuppage', values)
+        .then(res => {
+          console.log("signed");
+            navigate('/');
+        })
+        .catch(err => console.log(err))
+    }
+}
+
   const [showOrganizerSignUp, setShowOrganizerSignUp] = useState(false);
   if (showOrganizerForm) {
     return <OrganizerSignUp onClose={closeOrganizerForm} />;
@@ -227,15 +255,15 @@ const SignUpPage = () => {
               <>
                 <div className="inputDiv">
                   <label>First Name:</label>
-                  <div className="input"><input type="text" placeholder="Enter first name" /></div>
+                  <div className="input"><input type="text" placeholder="Enter first name" name="FirstName" onChange={handleInput} /></div>
                 </div>
                 <div className="inputDiv">
                   <label>Last Name:</label>
-                  <div className="input"><input type="text" placeholder="Enter last name" /></div>
+                  <div className="input"><input type="text" placeholder="Enter last name" name="LastName" onChange={handleInput}/></div>
                 </div>
                 <div className="inputDiv">
                   <label>Date of Birth:</label>
-                  <div className="input"><input type="date" /></div>
+                  <div className="input"><input type="date" name="DateOfBirth" onChange={handleInput} /></div>
                 </div>
               </>
             )}
@@ -243,15 +271,15 @@ const SignUpPage = () => {
               <>
                 <div className="inputDiv">
                   <label>Address:</label>
-                  <div className="input"><input type="text" placeholder="Enter address" /></div>
+                  <div className="input"><input type="text" placeholder="Enter address" name="Address" onChange={handleInput} /></div>
                 </div>
                 <div className="inputDiv">
                   <label>City:</label>
-                  <div className="input"><input type="text" placeholder="Enter city" /></div>
+                  <div className="input"><input type="text" placeholder="Enter city" name="City" onChange={handleInput} /></div>
                 </div>
                 <div className="inputDiv">
                   <label>ID Card:</label>
-                  <div className="input"><input type="text" placeholder="Enter ID" /></div>
+                  <div className="input"><input type="text" placeholder="Enter ID" name="IDCard" onChange={handleInput} /></div>
                 </div>
               </>
             )}
@@ -259,15 +287,15 @@ const SignUpPage = () => {
               <>
                 <div className="inputDiv">
                   <label>Email:</label>
-                  <div className="input"><input type="email" placeholder="Enter email" /></div>
+                  <div className="input"><input type="email" placeholder="Enter email" name="Email" onChange={handleInput} /></div>
                 </div>
                 <div className="inputDiv">
                   <label>Password:</label>
-                  <div className="input"><input type="password" placeholder="Enter password" /></div>
+                  <div className="input"><input type="password" placeholder="Enter password" name="Password" onChange={handleInput} /></div>
                 </div>
                 <div className="inputDiv">
                   <label>Confirm Password:</label>
-                  <div className="input"><input type="password" placeholder="Confirm password" /></div>
+                  <div className="input"><input type="password" placeholder="Confirm password" name="CPassword" onChange={handleInput} /></div>
                 </div>
               </>
             )}
@@ -276,9 +304,12 @@ const SignUpPage = () => {
               {step < 3 ? (
                 <button type="button" className="btn" onClick={nextStep}>Next</button>
               ) : (
-                <form onSubmit={handleSubmit} className="form">
-                    <button type="submit" className="btn">Sign Up</button>
-                </form>
+                
+              <form onSubmit={handleSubmit} className="form">
+                <button type="submit" className="btn">Sign Up</button>
+              </form>
+            
+                
               )}
             </div>
           </form>

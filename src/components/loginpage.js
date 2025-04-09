@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import SignupPage from "./signuppage";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import axios from 'axios';
 
 // STYLES
+
 const LoginPageContainer = styled.div`
   height: 100vh;
   width: 100%;
@@ -160,7 +163,37 @@ const FormDiv = styled.div`
   }
 `;
 
+
 const LoginPage = () => {
+  const navigate = useNavigate();
+  const handleLogin = (e) => {
+    e.preventDefault();
+    // Simulate authentication success
+    navigate("/user-space"); // Redirect to the UserSpace component
+  };
+  const [values, setValues] = useState({
+      Email:'',
+      Password:'',
+    })
+  
+    const handleInput = (event) =>{
+      setValues(prev => ({ ...prev, [event.target.name]: event.target.value }));
+    };
+  
+    const handleSubmit = async(event) => {
+      event.preventDefault(); // Prevent form from submitting and redirecting
+      axios.post('http://localhost:8081/loginpage', values)
+      .then(res => {
+        if(res.data.Login){
+          console.log("logged in succ");
+          navigate('/');
+        }else{
+          alert("No Record");
+        }
+        console.log(res);
+      })
+      .catch(err => console.log(err));
+    };
   const [showSignup, setShowSignup] = useState(false);
   if (showSignup) {
     return <SignupPage onClose={() => setShowSignup(false)} />; // Affiche la page d'inscription
@@ -182,25 +215,27 @@ const LoginPage = () => {
           <div className="headerDiv">
             <h2>Welcome Back!</h2>
           </div>
-          <form className="form">
+          <form className="form"  onSubmit={handleLogin}>
             <span>Login Status will go here</span>
 
             <div className="inputDiv">
-              <label htmlFor="username">E-mail :</label>
-              <div className="input">
+              <label htmlFor="Email">E-mail :</label>
+              <div className="input" >
                 <span className="icon">🔒</span>
-                <input type="text" id="username" placeholder="Enter e-mail" />
+                <input type="text" id="Email" placeholder="Enter e-mail" name="Email" onChange={handleInput}/>
               </div>
             </div>
 
             <div className="inputDiv">
-              <label htmlFor="password">Password :</label>
+              <label htmlFor="Password">Password :</label>
               <div className="input">
                 <span className="icon">🔑</span>
                 <input
                   type="password"
-                  id="password"
+                  id="Password"
                   placeholder="Enter Password"
+                  name="Password" 
+                  onChange={handleInput}
                 />
               </div>
             </div>
