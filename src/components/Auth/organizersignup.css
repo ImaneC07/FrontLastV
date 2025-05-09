@@ -1,0 +1,141 @@
+/* Ajouts/modifications spécifiques à l'organisateur */
+
+.organizer-signup-container {
+    display: flex; 
+    background: linear-gradient(135deg, #FFF9C4 0%, #F8BBD0 100%);
+    align-items: center; /* Centre verticalement */
+    justify-content: center; /* Centre horizontalement */
+  }
+  
+  signup-card {
+    width: 100%;
+    max-width: 600px; /* Largeur maximale cohérente */
+    margin: 0 auto; /* Centre le contenu dans son parent */
+  }
+
+  /* Sections du formulaire */
+  .form-section {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px dashed #E91E63;
+  }
+  
+  .form-section h4 {
+    color: #E91E63;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+  }
+  
+  .form-section h4::before {
+    content: "•";
+    margin-right: 8px;
+    color: #FFC107;
+  }
+  
+  /* Zone d'upload */
+  .file-upload-area {
+    border: 2px dashed #ccc;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-bottom: 0.5rem;
+  }
+  
+  .file-upload-area:hover {
+    border-color: #E91E63;
+    background-color: #FFF9C4;
+  }
+  
+  .file-upload-area.error {
+    border-color: #f44336;
+  }
+  
+  .file-hint, .field-hint {
+    font-size: 0.8rem;
+    color: #666;
+    margin-top: 0.3rem;
+  }
+  
+  /* Modal du contrat */
+  .contract-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  .contract-modal {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    max-width: 600px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+  }
+  
+  .contract-modal h3 {
+    color: #E91E63;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .contract-content {
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+  
+  .contract-content ol {
+    padding-left: 1.5rem;
+  }
+  
+  .sign-contract-btn {
+    background: #E91E63;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    margin-bottom: 1rem;
+    transition: background 0.3s;
+  }
+  
+  .sign-contract-btn:hover {
+    background: #C2185B;
+  }
+  
+  .close-modal-btn {
+    background: transparent;
+    color: #666;
+    border: 1px solid #ddd;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    transition: all 0.3s;
+  }
+  
+  .close-modal-btn:hover {
+    background: #f5f5f5;
+  }
+  
+  .contract-link {
+    color: #E91E63;
+    text-decoration: underline;
+    cursor: pointer;
+  }

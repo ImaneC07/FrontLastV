@@ -1,0 +1,290 @@
+/* about.css - Version améliorée */
+
+/* Bannière */
+.about-banner {
+    position: relative;
+    height: 500px;
+    overflow: hidden;
+    margin-bottom: 60px;
+  }
+  
+  .banner-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.8);
+  }
+  
+  .banner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    background: rgba(0, 40, 85, 0.5);
+    padding: 0 20px;
+  }
+  
+  .banner-overlay h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+  }
+  
+  /* Contenu principal */
+  .about-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .about-section {
+    margin-bottom: 80px;
+  }
+  
+  .section-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 50px;
+    color: #002855;
+    position: relative;
+  }
+  
+  .section-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: #FFC107;
+    margin: 20px auto;
+    border-radius: 2px;
+  }
+  
+  /* Timeline Notre Histoire */
+  .history-timeline {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+  }
+  
+  .timeline-item {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+    border-top: 4px solid  #E91E63;
+  }
+  
+  .timeline-item:hover {
+    transform: translateY(-10px);
+  }
+  
+  .timeline-item h3 {
+    font-size: 1.5rem;
+    color:  #002855;
+    margin-bottom: 15px;
+  }
+  
+  /* Équipe */
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+  }
+  
+  .team-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+  }
+  
+  .team-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+  }
+  
+  .member-header {
+    background: #eb5972;
+    color: white;
+    padding: 25px;
+  }
+  
+  .member-header h3 {
+    font-size: 1.4rem;
+    margin: 0;
+  }
+  
+  .role-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    margin-top: 10px;
+  }
+  
+  .member-bio {
+    padding: 25px;
+    color: #555;
+    line-height: 1.6;
+    font-size: 1rem;
+  }
+  
+  .fun-fact {
+    padding: 0 25px 25px;
+    font-style: italic;
+    color: #0077ff;
+    font-size: 0.9rem;
+  }
+  
+  /* Cartes de valeur */
+  .value-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+  }
+  
+  .value-card {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    text-align: center;
+  }
+  
+  .value-card:hover {
+    transform: translateY(-10px);
+  }
+  
+  .value-card h3 {
+    font-size: 1.4rem;
+    color: #002855;
+    margin-bottom: 15px;
+  }
+  
+  /* Grille de fonctionnalités */
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+  }
+  
+  .feature-card {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+  }
+  
+  .feature-card:hover {
+    transform: translateY(-10px);
+  }
+  
+  .feature-card h4 {
+    font-size: 1.2rem;
+    color: #002855;
+    margin-bottom: 15px;
+  }
+  
+  /* Témoignages */
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+  }
+  
+  .testimonial-card {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  }
+  
+  .testimonial-rating {
+    color: #FFD700;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+  }
+  
+  .testimonial-text {
+    font-style: italic;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  
+  .testimonial-author {
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+  }
+  
+  .testimonial-author strong {
+    display: block;
+    color: #002855;
+  }
+  
+  /* CTA */
+  .dual-cta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 60px;
+  }
+  
+  .cta-card {
+    padding: 40px;
+    border-radius: 12px;
+    text-align: center;
+    color: white;
+  }
+  
+  .participant-cta {
+    background: linear-gradient(135deg, #0077ff 0%, #0055cc 100%);
+  }
+  
+  .organizer-cta {
+    background: linear-gradient(135deg, #002855 0%, #001a3d 100%);
+  }
+  
+  .cta-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .cta-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background: white;
+    color: #002855;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+  
+  .cta-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .banner-overlay h1 {
+      font-size: 2.2rem;
+    }
+    
+    .section-title {
+      font-size: 2rem;
+    }
+  }

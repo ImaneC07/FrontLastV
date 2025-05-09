@@ -1,61 +1,35 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FaSearch } from "react-icons/fa";
+import "./header.css";
 
 const Header = () => {
-  const headerStyle = {
-    width: "100%",
-    height: "64px",
-    backgroundColor: "white",
-    display: "flex",
-    alignItems: "center",
-    padding: "0 32px",
-    justifyContent: "space-between",
-  };
-
-  const logoStyle = {
-    color: "#6a1b9a",
-    fontWeight: "bold",
-    fontSize: "1.5rem",
-    marginRight: "auto",
-  };
-
-  const navMenuStyle = {
-    display: "flex",
-    gap: "24px",
-  };
-
-  const navItemStyle = {
-    color: "black",
-    fontSize: "0.875rem",
-    fontWeight: "500",
-    textDecoration: "none",
-    cursor: "pointer",
-  };
-
-  const loginBtnStyle = {
-    marginLeft: "32px",
-    color: "white",
-    fontSize: "0.875rem",
-    fontWeight: "600",
-    backgroundColor: "#6a1b9a",
-    padding: "10px 20px",
-    borderRadius: "999px",
-    textDecoration: "none",
-    transition: "background-color 0.3s ease-in-out",
-  };
-
   return (
-    <div style={headerStyle}>
-      <div style={logoStyle}>geturticket</div>
-      <div style={navMenuStyle}>
-        <div style={navItemStyle}>Home</div>
-        <div style={navItemStyle}>Events</div>
-        <div style={navItemStyle}>About</div>
-        <div style={navItemStyle}>Contact</div>
+    <div className="header">
+      {/* Logo */}
+      <div className="logo">
+        <span className="logo-getur">getur</span>
+        <span className="logo-ticket">ticket</span>
       </div>
-      <Link to="/login" style={loginBtnStyle} onMouseOver={(e) => (e.target.style.backgroundColor = "#d81b60")} onMouseOut={(e) => (e.target.style.backgroundColor = "#ec407a")}>
-        Log In
-      </Link>
+
+      {/* Search Bar */}
+      <div className="search-bar">
+        <input type="text" placeholder="Search events, locations, etc..." />
+        <FaSearch className="search-icon" />
+      </div>
+
+      {/* Navigation Menu */}
+      <div className="nav-menu">
+        <Link to="/" className="nav-item">Home</Link>
+        <Link to="/about" className="nav-item">About Us</Link>
+        <Link to="/helpcenter" className="nav-item">Help Center</Link>
+      </div>
+
+      {/* Auth Buttons */}
+      <div className="auth-buttons">
+        <Link to="/signup" className="auth-button sign-up-btn">Sign Up</Link>
+        <Link to="/Auth/login" className="auth-button login-btn">Log In</Link>
+      </div>
     </div>
   );
 };

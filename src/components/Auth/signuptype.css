@@ -1,0 +1,152 @@
+/* Variables couleurs */
+:root {
+  --primary-pink: #E91E63;
+  --primary-yellow: #FFC107;
+  --light-pink: #FCE4EC;
+  --light-yellow: #FFF8E1;
+  --dark-gray: #333;
+  --medium-gray: #666;
+  --light-gray: #f5f5f5;
+}
+
+/* Structure de base */
+.signup-type-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f9f9f9;
+  padding: 2rem;
+}
+
+.signup-type-content {
+  max-width: 1200px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Typographie */
+.signup-title {
+  font-size: 2.5rem;
+  color: var(--primary-pink);
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.signup-subtitle {
+  font-size: 1.1rem;
+  color: var(--medium-gray);
+  margin-bottom: 3rem;
+}
+
+/* Grille des cartes */
+.account-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 0 auto;
+}
+
+/* Carte individuelle */
+.account-card {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(233, 30, 99, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid transparent;
+}
+
+.account-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(233, 30, 99, 0.2);
+  border-color: var(--card-color);
+}
+
+/* En-tête carte */
+.card-header {
+  margin-bottom: 1.5rem;
+}
+
+.card-header h3 {
+  font-size: 1.8rem;
+  color: var(--dark-gray);
+  margin-bottom: 0.5rem;
+}
+
+.card-header p {
+  color: var(--medium-gray);
+  font-size: 1rem;
+}
+
+/* Liste features */
+.card-features {
+  text-align: left;
+  margin: 2rem 0;
+  padding: 0;
+  list-style: none;
+}
+
+.card-features li {
+  margin-bottom: 0.8rem;
+  padding-left: 1.5rem;
+  position: relative;
+  color: var(--dark-gray);
+}
+
+.feature-icon {
+  position: absolute;
+  left: 0;
+  color: var(--card-color);
+  font-weight: bold;
+}
+
+/* Bouton carte */
+.card-button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 30px;
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+
+.card-button:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+/* Lien déjà membre */
+.already-member {
+  margin-top: 3rem;
+  color: var(--medium-gray);
+}
+
+.already-member span {
+  color: var(--primary-pink);
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.already-member span:hover {
+  color: var(--primary-yellow);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .signup-title {
+    font-size: 2rem;
+  }
+  
+  .account-cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
