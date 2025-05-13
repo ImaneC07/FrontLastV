@@ -1,0 +1,265 @@
+:root {
+  --primary: #E91E63;
+  --secondary:#FFC107;
+  --success: #28a745;
+  --danger: #dc3545;
+  --info: #17a2b8;
+  --background: #f8f9fa;
+  --text: #343a40;
+  --border: #dee2e6;
+  --shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+   --dark-color: #333;
+  --light-color: #f8f9fa;
+  --gray-color: #6c757d;
+  --light-gray: #e9ecef;
+  --white: #fff;
+  --black: #000;
+}
+
+.event-moderation {
+  background: var(--background);
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  min-height: 100vh;
+  font-family: 'Arial', sans-serif;
+  color: var(--text);
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.section-header h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-box i {
+  position: absolute;
+  left: 0.75rem;
+  color: var(--secondary);
+}
+
+.search-box input {
+  padding: 0.5rem 0.5rem 0.5rem 2.5rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-size: 0.9rem;
+  width: 200px;
+  transition: border-color 0.2s;
+}
+
+.search-box input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.filters {
+  display: flex;
+  gap: 1rem;
+}
+
+.filters select {
+  padding: 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-size: 0.9rem;
+  background: var(--white);
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.filters select:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.events-table-container {
+  background: var(--white);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  overflow-x: auto;
+}
+
+.events-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.events-table th,
+.events-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.events-table th {
+  background: #e9ecef;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
+.events-table tbody tr:hover {
+  background: #f1f3f5;
+}
+
+.event-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.event-thumbnail {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.event-title {
+  font-weight: 500;
+  color: var(--primary);
+  cursor: pointer;
+}
+
+.event-title:hover {
+  text-decoration: underline;
+}
+
+.event-category {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--secondary);
+}
+
+.organizer-info {
+  flex-direction: column;
+}
+
+.organizer-email {
+  font-size: 0.85rem;
+  color: var(--secondary);
+}
+
+.org-name{
+    display: flex;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  text-transform: capitalize;
+}
+
+
+.status-badge.approved {
+  background: #d4edda;
+  color: var(--success);
+}
+
+.status-badge.rejected {
+  background: #f8d7da;
+  color: var(--danger);
+}
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.action-button {
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  color: var(--secondary);
+  transition: color 0.2s, background 0.2s;
+  border-radius: 4px;
+}
+
+.action-button:hover {
+  background: var(--border);
+}
+
+.action-button.approve {
+  color: var(--success);
+}
+
+.action-button.approve:hover {
+  background: #d4edda;
+}
+
+.action-button.reject {
+  color: var(--danger);
+}
+
+.action-button.reject:hover {
+  background: #f8d7da;
+}
+
+.action-button i {
+  font-size: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .event-moderation {
+    padding: 1rem;
+  }
+
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .header-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .search-box input {
+    width: 100%;
+  }
+
+  .filters {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .filters select {
+    width: 100%;
+  }
+
+  .events-table th,
+  .events-table td {
+    padding: 0.5rem;
+    font-size: 0.85rem;
+  }
+
+  .event-thumbnail {
+    width: 40px;
+    height: 40px;
+  }
+}

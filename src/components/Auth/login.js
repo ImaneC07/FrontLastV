@@ -56,9 +56,9 @@ const Login = () => {
     if (foundUser.type === 'participant') {
       navigate('/Dashboards/dashboardparticipant');
     } else if (foundUser.type === 'organizer') {
-      navigate('/Dashboards/dashboardorganizer');
+      navigate('/Dashboards/Organisateur/dashboardorganizer');
     } else {
-      navigate('/Dashboards/dashboardadmin');
+      navigate('/Dashboards/Admin/DashboardAdmin');
     }
   };
 

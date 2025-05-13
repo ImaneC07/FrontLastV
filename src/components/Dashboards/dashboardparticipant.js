@@ -2,6 +2,7 @@ import React, { useState, useMemo, useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 import './dashboardparticipant.css';
 
+
 const DashboardParticipant = () => {
   // Données simulées
   const [user, setUser] = useState({
@@ -137,14 +138,14 @@ const DashboardParticipant = () => {
         {
           id: 1,
           senderId: 1001,
-          text: "Bonjour, votre réservation est confirmée !",
+          text: "Hello, your booking is confirmed!",
           timestamp: "2024-03-15T10:30:00",
           read: true
         },
         {
           id: 2,
           senderId: 'user',
-          text: "Merci ! J'ai une question concernant le parking...",
+          text: "Thank you ! I have a question about parking...",
           timestamp: "2024-03-15T10:35:00",
           read: true
         }
@@ -203,8 +204,8 @@ const DashboardParticipant = () => {
 
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [notifications, setNotifications] = useState([
-    { id: 1, message: "Nouvel événement disponible près de chez vous!", read: false },
-    { id: 2, message: "Votre réservation pour le Festival Jazz a été confirmée.", read: false }
+    { id: 1, message: "New event available near you!", read: false },
+    { id: 2, message: "Your reservation for the Jazz Festival has been confirmed.", read: false }
   ]);
 
   const isRefundEligible = (frenchDate) => {
@@ -527,24 +528,24 @@ const ConfirmationComponent = () => {
           <div className="success-icon">
             <i className="fas fa-check-circle"></i>
           </div>
-          <h3>Merci pour votre commande !</h3>
-          <p>Votre réservation a été confirmée et vous recevrez un email de confirmation.</p>
+          <h3>Thank you for your order!</h3>
+          <p>Your booking has been confirmed and you will receive a confirmation email.</p>
         </div>
 
         <div className="order-details">
-          <h4>Détails de la commande</h4>
+          <h4>Order details</h4>
           <div className="order-info">
-            <p><strong>Numéro de commande:</strong> #123456</p>
+            <p><strong>Order number:</strong> #123456</p>
             <p><strong>Date:</strong> {new Date().toLocaleDateString()}</p>
           </div>
         </div>
 
         <div className="next-steps">
-          <h4>Prochaines étapes</h4>
+          <h4>Next steps</h4>
           <ul>
-            <li>Vérifiez votre email pour la confirmation</li>
-            <li>Téléchargez vos billets électroniques</li>
-            <li>Ajoutez l'événement à votre calendrier</li>
+            <li>Check your e-mail for confirmation</li>
+            <li>Download your e-tickets</li>
+            <li>Add the event to your calendar</li>
           </ul>
         </div>
       </div>
@@ -915,7 +916,7 @@ const ConfirmationComponent = () => {
       <div className="modal-overlay">
         <div className="modal-content">
           <div className="modal-header">
-            <h3>Annuler la réservation</h3>
+            <h3>Cancel booking</h3>
             <button 
               className="close-button"
               onClick= {onClose}
@@ -930,13 +931,13 @@ const ConfirmationComponent = () => {
             {refundEligible && (
               <div className="refund-notice">
                 <i className="fas fa-check-circle"></i>
-                <span>Remboursement possible (annulation plus de 24h avant l'événement)</span>
+                <span>Refunds possible (cancellation more than 24 hours before the event)</span>
               </div>
             )}
             
             <textarea
               className="reason-textarea"
-              placeholder="Ex : Changement de plans, problème de transport..."
+              placeholder="Ex : Change of plans, transportation problems..."
               value={reason}
               onChange={(e) => setReason(e.target.value)}
               rows="5"
@@ -1203,9 +1204,9 @@ const ConfirmationComponent = () => {
                 <div className="notification-setting">
                   <label>
                     <input type="checkbox" defaultChecked />
-                    Notifications par email
+                    Notifications by email
                   </label>
-                  <p>Recevoir des emails pour les mises à jour importantes</p>
+                  <p>Receive e-mails for important updates</p>
                 </div>
       
                 <div className="notification-setting">
@@ -1219,25 +1220,25 @@ const ConfirmationComponent = () => {
                 <div className="notification-setting">
                   <label>
                     <input type="checkbox" defaultChecked />
-                    Rappels d'événements
+                    Event reminders
                   </label>
-                  <p>Recevoir des rappels avant vos événements</p>
+                  <p>Receive reminders before your events</p>
                 </div>
       
                 <div className="notification-setting">
                   <label>
                     <input type="checkbox" defaultChecked />
-                    Messages des organisateurs
+                    Messages from the organizers
                   </label>
-                  <p>Être notifié des messages des organisateurs</p>
+                  <p>Be notified of messages from the organizers</p>
                 </div>
       
                 <div className="notification-setting">
                   <label>
                     <input type="checkbox" defaultChecked />
-                    Promotions et offres
+                    Promotions & offers
                   </label>
-                  <p>Recevoir des offres spéciales et recommandations</p>
+                  <p>Receive special offers and recommendations</p>
                 </div>
               </div>
               
@@ -1320,12 +1321,11 @@ const ConfirmationComponent = () => {
     <div className="dashboard">
       {/* Header */}
       <header className="dashboard-header">
-        <div className="logo">Get<span>UrTicket</span></div>
-        
+        <div className="logo">Get<span>UrTicket</span></div> 
         <div className="search-bar">
           <input
             type="text"
-            placeholder="Rechercher un événement..."
+            placeholder="Search for an event..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
@@ -1335,7 +1335,8 @@ const ConfirmationComponent = () => {
         </div>
         
         <div className="header-icons">
-          <button className="icon-button"  onClick={() => setActiveTab('notifications')}>
+          <button className="icon-button"  
+          onClick={() => setActiveTab('notifications')}>
             <i className="fas fa-bell"></i>
             {unreadNotificationsCount > 0 && (
             <span className="notification-badge">3</span>
@@ -1364,35 +1365,35 @@ const ConfirmationComponent = () => {
             onClick={() => setActiveTab('home')}
           >
             <i className="fas fa-home"></i>
-            <span>Accueil</span>
+            <span>Home</span>
           </button>
           <button 
             className={`nav-button ${activeTab === 'explore' ? 'active' : ''}`}
             onClick={() => setActiveTab('explore')}
           >
             <i className="fas fa-compass"></i>
-            <span>Explorer</span>
+            <span>Explore</span>
           </button>
           <button 
             className={`nav-button ${activeTab === 'bookings' ? 'active' : ''}`}
             onClick={() => setActiveTab('bookings')}
           >
             <i className="fas fa-calendar-check"></i>
-            <span>Mes Réservations</span>
+            <span>My Bookings</span>
           </button>
           <button 
             className={`nav-button ${activeTab === 'favorites' ? 'active' : ''}`}
             onClick={() => setActiveTab('favorites')}
           >
             <i className="fas fa-heart"></i>
-            <span>Favoris</span>
+            <span>Favorites</span>
           </button>
           <button
             className={`nav-button ${activeTab === 'profile' ? 'active' : ''}`}
             onClick={() => setActiveTab('profile')}
           >
             <i className="fas fa-user"></i>
-            <span>Mon Profil</span>
+            <span>My Profile</span>
           </button>
           <button
             className={`nav-button ${activeTab === 'inbox' ? 'active' : ''}`} 
@@ -1406,14 +1407,14 @@ const ConfirmationComponent = () => {
             onClick={() => setActiveTab('invoices')} 
           >
             <i className="fas fa-file-invoice"></i> 
-            <span>Mes Factures</span> 
+            <span>My Invoices</span> 
           </button>
         </nav>
         
         <div className="help-section">
           <button className="help-button">
             <i className="fas fa-question-circle"></i>
-            <span>Aide & Support</span>
+            <span>Help & Support</span>
           </button>
         </div>
       </aside>
@@ -1423,17 +1424,17 @@ const ConfirmationComponent = () => {
         {activeTab === 'home' && (
           <>
             <section className="welcome-banner">
-              <h1>Bonjour, {user.name} !</h1>
-              <p>Découvrez les événements qui vous attendent.</p>
+              <h1>Welcome, {user.name} !</h1>
+              <p>Discover the events that await you.</p>
               {user.upcomingEvents > 0 && (
                 <div className="upcoming-alert">
-                  Vous avez {user.upcomingEvents} événement(s) à venir ce mois-ci !
+                  You have {user.upcomingEvents} upcoming event(s) this month!
                 </div>
               )}
             </section>
 
             <section className="recommended-section">
-              <h2 className="section-title">Recommandé pour vous</h2>
+              <h2 className="section-title">Recommended for you</h2>
               <div className="events-grid">
                 {filteredEvents.slice(0, 3).map(event => (
                   <EventCard 
@@ -1446,7 +1447,7 @@ const ConfirmationComponent = () => {
             </section>
 
             <section className="trending-section">
-              <h2 className="section-title">Événements tendances</h2>
+              <h2 className="section-title">Trendy events</h2>
               <div className="events-grid">
                 {filteredEvents.slice().reverse().map(event => (
                   <EventCard 
@@ -1462,23 +1463,23 @@ const ConfirmationComponent = () => {
 
         {activeTab === 'explore' && (
           <div className="explore-page">
-            <h2 className="section-title">Explorer les événements</h2>
+            <h2 className="section-title">Explore events</h2>
             <div className="filters">
               <select
                 value={filters.category}
                 onChange={(e) => handleFilterChange('category', e.target.value)}
               >
-                <option value="all">Toutes catégories</option>
-                <option value="musique">Musique</option>
+                <option value="all">All categories</option>
+                <option value="musique">Music</option>
                 <option value="art">Art</option>
-                <option value="technologie">Technologie</option>
+                <option value="technologie">Technology</option>
               </select>
               
               <select
                 value={filters.location}
                 onChange={(e) => handleFilterChange('location', e.target.value)}
               >
-                <option value="all">Tous lieux</option>
+                <option value="all">All locations</option>
                 <option value="Paris">Paris</option>
                 <option value="Lyon">Lyon</option>
                 <option value="Marseille">Marseille</option>
@@ -1488,9 +1489,9 @@ const ConfirmationComponent = () => {
                 value={filters.price}
                 onChange={(e) => handleFilterChange('price', e.target.value)}
               >
-                <option value="all">Tous prix</option>
-                <option value="free">Gratuit</option>
-                <option value="paid">Payant</option>
+                <option value="all">All prices</option>
+                <option value="free">Free</option>
+                <option value="paid">Paying</option>
               </select>
             </div>
             <div className="events-grid">
@@ -1508,14 +1509,14 @@ const ConfirmationComponent = () => {
 
         {activeTab === 'bookings' && (
           <div className="bookings-page">
-            <h2 className="section-title">Mes Réservations</h2>
+            <h2 className="section-title">My Bookings</h2>
             <div className="booking-tabs">
               <button className={activeBookingTab === 'upcoming' ? 'active' : ''}
-                onClick={() => setActiveBookingTab('upcoming')} >À venir</button>
+                onClick={() => setActiveBookingTab('upcoming')} >Upcoming</button>
               <button className={activeBookingTab === 'past' ? 'active' : ''}
-                onClick={() => setActiveBookingTab('past')} >Passées</button>
+                onClick={() => setActiveBookingTab('past')} >Past</button>
               <button className={activeBookingTab === 'cancelled' ? 'active' : ''}
-                onClick={() => setActiveBookingTab('cancelled')} >Annulées</button>
+                onClick={() => setActiveBookingTab('cancelled')} >Cancelled</button>
             </div>
             <div className="bookings-list">
               {displayedBookings.length > 0 ? (
@@ -1525,7 +1526,7 @@ const ConfirmationComponent = () => {
               ) : (
                 <div className="empty-state">
                   <i className="fas fa-calendar-times"></i>
-                  <p>Aucune réservation {activeBookingTab === 'upcoming' ? 'à venir' : 
+                  <p>No booking {activeBookingTab === 'upcoming' ? 'à venir' : 
                     activeBookingTab === 'past' ? 'passée' : 'annulée'}</p>
                 </div>
               )}
@@ -1535,7 +1536,7 @@ const ConfirmationComponent = () => {
 
         {activeTab === 'favorites' && (
           <div className="favorites-page">
-            <h2 className="section-title">Mes Événements Favoris</h2>
+            <h2 className="section-title">My Favorite Events</h2>
             {events.filter(e => e.liked).length > 0 ? (
               <div className="events-grid">
                 {events.filter(e => e.liked).map(event => (
@@ -1549,9 +1550,9 @@ const ConfirmationComponent = () => {
             ) : (
               <div className="empty-state">
                 <i className="fas fa-heart-broken"></i>
-                <p>Vous n'avez aucun événement favori pour le moment</p>
+                <p>You don't have any favorite events at the moment</p>
                 <button className="explore-button" onClick={() => setActiveTab('explore')}>
-                  Explorer les événements
+                  Explore events
                 </button>
               </div>
             )}
@@ -1560,7 +1561,7 @@ const ConfirmationComponent = () => {
 
         {activeTab === 'profile' && (
           <div className="profile-page">
-            <h2 className="section-title">Mon Profil</h2>
+            <h2 className="section-title">My Profile</h2>
             {!isEditingProfile ? (
             <div className="profile-card">
               <div className="profile-header">
@@ -1572,21 +1573,21 @@ const ConfirmationComponent = () => {
                   <p>{user.address}, {user.city}, {user.country}</p>
                 </div>
                 <button className="edit-button" onClick={handleProfileEdit}>
-                  <i className="fas fa-edit"></i> Modifier
+                  <i className="fas fa-edit"></i> Modify
                 </button>
               </div>
               
               <div className="profile-stats">
                 <div className="stat-item">
-                  <h4>Événements</h4>
+                  <h4>Events</h4>
                   <p>12</p>
                 </div>
                 <div className="stat-item">
-                  <h4>Favoris</h4>
+                  <h4>Favorites</h4>
                   <p>5</p>
                 </div>
                 <div className="stat-item">
-                  <h4>Depuis</h4>
+                  <h4>Since</h4>
                   <p>2022</p>
                 </div>
               </div>
@@ -1594,47 +1595,47 @@ const ConfirmationComponent = () => {
               <div className="profile-actions">
                 <button className="action-button" onClick={() => setShowPasswordModal(true)}>
                   <i className="fas fa-key"></i> 
-                  <span> Changer mot de passe </span>
+                  <span> Change your password </span>
                 </button>
                 <button className="action-button" onClick={() => setShowNotificationSettings(true)}>
                   <i className="fas fa-bell"></i> 
-                  <span> Préférences de notification </span>
+                  <span> Notification settings </span>
                 </button>
                 <div className="newsletter-preferences">
-                    <h4>Préférences Newsletter</h4>
-                    <p>Fréquence: {user.newsletterFrequency}</p>
+                    <h4>Newsletter settings</h4>
+                    <p>Frequency: {user.newsletterFrequency}</p>
                     <select
                          value={user.newsletterFrequency}
                          onChange={(e) => setUser({...user, newsletterFrequency: e.target.value})}
                          className="newsletter-select"
                           >
-                           <option value="daily">Quotidien</option>
-                           <option value="weekly">Hebdomadaire</option>
-                           <option value="monthly">Mensuel</option>
-                           <option value="never">Désactiver</option>
+                           <option value="daily">Daily</option>
+                           <option value="weekly">Weekly</option>
+                           <option value="monthly">Monthly</option>
+                           <option value="never">Never</option>
                     </select>
                   </div>
 
                   <button className="action-button danger" onClick={() => setShowDeleteAccountModal(true)}>
                       <i className="fas fa-trash-alt"></i>
-                     <span>Supprimer le compte</span>
+                     <span>Delete account</span>
                   </button>
 
                 <button className="action-button">
                   <i className="fas fa-sign-out-alt"></i> 
-                  <span> Déconnexion </span>
+                  <span> Logout </span>
                 </button>
               </div>
             </div>
             ):(
               <div className="profile-edit-form">
               <div className="form-group">
-                <label htmlFor="photo">Photo de profil</label>
+                <label htmlFor="photo">Profile picture</label>
                 <input type="file" id="photo" accept="image/*" onChange={handlePhotoChange} />
                 {tempUser.photo && <img src={tempUser.photo} alt="Preview" style={{ width: '80px', height: '80px', borderRadius: '50%', marginTop: '10px' }} />}
               </div>
               <div className="form-group">
-                <label htmlFor="name">Nom</label>
+                <label htmlFor="name">Name</label>
                 <input type="text" id="name" name="name" value={tempUser.name} onChange={handleInputChange} />
               </div>
               <div className="form-group">
@@ -1642,33 +1643,33 @@ const ConfirmationComponent = () => {
                 <input type="email" id="email" name="email" value={tempUser.email} onChange={handleInputChange} />
               </div>
               <div className="form-group">
-                <label htmlFor="phone">Téléphone</label>
+                <label htmlFor="phone">Phone number</label>
                 <input type="tel" id="phone" name="phone" value={tempUser.phone} onChange={handleInputChange} />
               </div>
               <div className="form-group">
-                <label htmlFor="address">Adresse</label>
+                <label htmlFor="address">Address</label>
                 <input type="text" id="address" name="address" value={tempUser.address} onChange={handleInputChange} />
               </div>
               <div className="form-group">
-                <label htmlFor="city">Ville</label>
+                <label htmlFor="city">City</label>
                 <input type="text" id="city" name="city" value={tempUser.city} onChange={handleInputChange} />
               </div>
               <div className="form-group">
-                <label htmlFor="country">Pays</label>
+                <label htmlFor="country">Country</label>
                 <input type="text" id="country" name="country" value={tempUser.country} onChange={handleInputChange} />
               </div>
               <div className="form-group">
-                <label>Fréquence Newsletter</label>
+                <label>Newsletter settings</label>
                 <select value={tempUser.newsletterFrequency} onChange={handleNewsletterChange}>
-                  <option value="daily">Quotidien</option>
-                  <option value="weekly">Hebdomadaire</option>
-                  <option value="monthly">Mensuel</option>
-                  <option value="never">Jamais</option>
+                  <option value="daily">Daily</option>
+                  <option value="weekly">Weekly</option>
+                  <option value="monthly">Monthly</option>
+                  <option value="never">Never</option>
                 </select>
               </div>
               <div className="form-actions">
-                <button className="secondary-button" onClick={handleProfileCancel}>Annuler</button>
-                <button className="primary-button" onClick={handleProfileSave}>Enregistrer</button>
+                <button className="secondary-button" onClick={handleProfileCancel}>Cancel</button>
+                <button className="primary-button" onClick={handleProfileSave}>Save</button>
               </div>
             </div>
           )}
@@ -1770,7 +1771,7 @@ const ConfirmationComponent = () => {
                 setActiveTab('home');
               }}
             >
-              <i className="fas fa-arrow-left"></i> Retour
+              <i className="fas fa-arrow-left"></i> Return
             </button>
 
             <div className="event-details-content">
@@ -1797,13 +1798,13 @@ const ConfirmationComponent = () => {
                     <h2>Informations</h2>
                     <div className="details-grid">
                       <div className="detail-item">
-                        <h3>Organisateur</h3>
+                        <h3>Organizer</h3>
                         <p className="organizer-link"
                           onClick={() => handleOrganizerClick(selectedEvent.organizerId)}
                           style={{ cursor: 'pointer', color: 'blue', textDecoration: 'underline' }}>{selectedEvent.organizer}</p>
                       </div>
                       <div className="detail-item">
-                        <h3>Capacité</h3>
+                        <h3>Capacity</h3>
                         <p>{selectedEvent.capacity} places</p>
                       </div>
                       <div className="detail-item">
@@ -1826,7 +1827,7 @@ const ConfirmationComponent = () => {
                     >
                       {selectedEvent.liked ? 'Retirer des favoris' : 'Ajouter aux favoris'}
                     </button>
-                    <button className="book-button">Réserver maintenant</button>
+                    <button className="book-button">Book now</button>
                   </div>
                 </div>
               </div>
@@ -1842,14 +1843,14 @@ const ConfirmationComponent = () => {
                 setActiveTab('home');
               }}
             >
-              <i className="fas fa-arrow-left"></i> Retour
+              <i className="fas fa-arrow-left"></i> Return
             </button>
-            <h2>Profil de l'organisateur</h2>
+            <h2>Organizer profile</h2>
             <div className="organizer-profile">
               <img src={selectedOrganizer.photo} alt={selectedOrganizer.name} />
               <h3>{selectedOrganizer.name}</h3>
               <p>{selectedOrganizer.description}</p>
-              <h4>Événements organisés par {selectedOrganizer.name}:</h4>
+              <h4>Events organized by {selectedOrganizer.name}:</h4>
               <ul>
                 {events
                   .filter(event => event.organizerId === selectedOrganizer.id)
@@ -1865,7 +1866,7 @@ const ConfirmationComponent = () => {
           <div className="notifications-page">
             <h2>Notifications</h2>
             {notifications.length === 0 ? (
-              <p>Aucune notification pour le moment.</p>
+              <p>No notification for the moment.</p>
             ) : (
               <ul>
                 {notifications.map(notification => (
@@ -1876,7 +1877,7 @@ const ConfirmationComponent = () => {
                     <span className="notification-message">{notification.message}</span>
                     {!notification.read && (
                       <button onClick={() => markNotificationAsRead(notification.id)}>
-                        Marquer comme lu
+                        Mark as read
                       </button>
                     )}
                   </li>
@@ -1888,13 +1889,13 @@ const ConfirmationComponent = () => {
 
     {activeTab === 'invoices' && ( 
       <div className="invoices-page"> 
-           <h2 className="section-title">Mes Factures</h2> 
+           <h2 className="section-title">My Invoices</h2> 
               <table className="invoices-table">  
                 <thead>  
                     <tr>  
                         <th>Date</th>  
-                        <th>Événement</th>  
-                        <th>Montant</th>  
+                        <th>Event</th>  
+                        <th>Amount</th>  
                         <th>Action</th>  
                      </tr>  
                 </thead>  
@@ -1909,7 +1910,7 @@ const ConfirmationComponent = () => {
                              className="download-button" 
                               onClick={() => handleDownloadInvoice(invoice.id)} 
                             > 
-                                         Télécharger 
+                                         Download 
                             </button> 
                       </td> 
                     </tr> 
@@ -1924,7 +1925,7 @@ const ConfirmationComponent = () => {
     <div className="checkout-header">
       <h2>Votre Panier</h2>
       <div className="checkout-steps">
-        <div className="step active">Panier</div>
+        <div className="step active">Cart</div>
         <div className="step">Informations</div>
         <div className="step">Paiement</div>
         <div className="step">Confirmation</div>
@@ -1939,7 +1940,7 @@ const ConfirmationComponent = () => {
           className="explore-button"
           onClick={() => setActiveTab('explore')}
         >
-          Explorer les événements
+          Explore events
         </button>
       </div>
     ) : (

@@ -12,8 +12,11 @@ import ParticipantSignUp from './components/Auth/participantsignup';
 import OrganizerSignUp from './components/Auth/organizersignup';
 import Login from './components/Auth/login';
 import DashboardParticipant from './components/Dashboards/dashboardparticipant';
-import DashboardOrganizer from './components/Dashboards/dashboardorganizer';
+import DashboardOrganizer from './components/Dashboards/Organisateur/dashboardorganizer';
 import EventDetails from './components/Dashboards/eventdetails';
+import Statistics from './components/Dashboards/Organisateur/Statistics';
+import Finance from './components/Dashboards/Organisateur/Finance';
+import DashboardAdmin from './components/Dashboards/Admin/DashboardAdmin';
 
 
 function App() {
@@ -30,8 +33,11 @@ function App() {
           <Route path="/Auth/organizersignup" element={<OrganizerSignUp />} />
           <Route path="/Auth/login" element={<Login />} />
           <Route path="/Dashboards/dashboardparticipant" element={<DashboardParticipant />} />
-          <Route path="/Dashboards/dashboardorganizer" element={<DashboardOrganizer />} />
+          <Route path="/Dashboards/Organisateur/dashboardorganizer" element={<DashboardOrganizer />} />
+           <Route path="/Dashboards/Statistics" element={<Statistics />} />
+          <Route path="/Dashboards/Finance" element={<Finance />} />
           <Route path="/Dashboards//event/:id" element={<EventDetails />} />
+           <Route path="/Dashboards/Admin/DashboardAdmin" element={<DashboardAdmin />} />
         </Routes>
       </div>
     </Router>

@@ -175,7 +175,7 @@ const EventWebsite = () => {
               zIndex: 1000,
             }}
           >
-            🛠️ Filtres
+            🛠️ Filters
           </button>
         )}
 
@@ -184,14 +184,14 @@ const EventWebsite = () => {
           <div className="filter-overlay">
             <div className="filter-container">
               <div className="filter-header">
-              <h2>Filtrer les événements</h2>
+              <h2>Filter events</h2>
               <button onClick={() => setIsFilterOpen(false)} className="close-btn"> &times; </button>
             </div>
 
             <div className="filter-groups">
                 {/* Filtre Catégories */}
                 <div className="filter-group">
-                  <h3>Catégories</h3>
+                  <h3>Categories</h3>
                   <div className="category-tags">
                     {uniqueCategories.map(category => (
                       <button 
@@ -207,7 +207,7 @@ const EventWebsite = () => {
 
                 {/* Filtre Prix */}
                 <div className="filter-group">
-                  <h3>Prix maximum (MAD)</h3>
+                  <h3>Maximum price (MAD)</h3>
                   <div className="price-range">
                     <input 
                       type="range" 
@@ -228,13 +228,13 @@ const EventWebsite = () => {
                       checked={filters.freeOnly}
                       onChange={(e) => setFilters({...filters, freeOnly: e.target.checked})}
                     />
-                    Événements gratuits seulement
+                    Free events only
                   </label>
                 </div>
 
                 {/* Filtre Lieu */}
                 <div className="filter-group">
-                  <h3>Localisation</h3>
+                  <h3>Location</h3>
                   <input
                     type="text"
                     placeholder="Ville, lieu..."
@@ -246,10 +246,11 @@ const EventWebsite = () => {
 
               <div className="filter-actions">
                 <button onClick={resetFilters} className="reset-btn">
-                  Réinitialiser
+                  Reset
                 </button>
                 <button onClick={applyFilters} className="apply-btn">
-                  Appliquer ({filteredEvents.length} résultats)
+                  Apply
+                   ({filteredEvents.length} résultats)
                 </button>
               </div>
             </div>
@@ -308,7 +309,7 @@ const EventWebsite = () => {
                   <p><strong>Category:</strong> {selectedEvent.category}</p>
                   <p><strong>Price:</strong> {selectedEvent.free ? "Free" : `${selectedEvent.price} MAD`}</p>
                   <p><strong>Capacity:</strong> {selectedEvent.capacity}</p>
-                  <p><strong>Places restantes:</strong> {selectedEvent.remaining}</p>
+                  <p><strong>Remaining places:</strong> {selectedEvent.remaining}</p>
                   <p><strong>Description:</strong> {selectedEvent.description}</p>
                   <button className="reserve-btn">Réserver</button>
                 </div>
